@@ -1,14 +1,23 @@
 package com.springdemo.models;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 @Table(name = "enrollment")
 public class Enrollment {
+    //We added a foreign key between the enrollment and student tables.
+    @ManyToOne
+    @JoinColumn(name = "ID_ESTUDIANTE")
+    private Student student;
+
+    //We added a foreign key between the enrollment and course tables.
+    @ManyToOne
+    @JoinColumn(name = "ID_CURSO")
+    private Course course;
+
+
 
     @Id
     @Column(name = "id_matricula")
