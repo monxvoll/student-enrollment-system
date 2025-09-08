@@ -24,16 +24,11 @@ public class Enrollment {
     private Long enrollmentId;
     @Column(name="semestre")
     private String semester;
-    @Column (name = "id_curso")
-    private String id_course;
-    @Column (name="id_estudiante")
-    private String studentId;
 
-    public Enrollment(Long enrollmentId, String semester, String id_course, String studentId) {
+
+    public Enrollment(Long enrollmentId, String semester) {
         this.enrollmentId = enrollmentId;
         this.semester = semester;
-        this.id_course = id_course;
-        this.studentId = studentId;
     }
 
     public Long getEnrollmentId() {
@@ -52,19 +47,5 @@ public class Enrollment {
         this.semester = semester;
     }
 
-    public String getId_course() {
-        return id_course;
-    }
 
-    public void setId_course(String id_course) {
-        this.id_course = id_course;
-    }
-
-    public String getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(String studentId) {
-        this.studentId = studentId;
-    }
 }

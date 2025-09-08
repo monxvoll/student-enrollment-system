@@ -1,14 +1,16 @@
 package com.springdemo.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 
 @Entity
 @Table(name = "student")
 public class Student {
+        //Mapping class
+        @OneToMany(mappedBy = "student") // Reference to Enrollment Object
+        private List<Enrollment> enrollmentList;
 
         @Id
         @Column(name = "id_estudiante")
