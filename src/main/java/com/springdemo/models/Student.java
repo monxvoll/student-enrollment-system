@@ -23,6 +23,9 @@ public class Student {
         private String email;
 
 
+    public Student(){
+
+    }
     public Student(Long studentId, String name, String lastName, String email) {
         this.studentId = studentId;
         this.name = name;
