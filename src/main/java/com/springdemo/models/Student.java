@@ -13,6 +13,9 @@ public class Student {
         private List<Enrollment> enrollmentList;
 
         @Id
+        //Generate value of type sequence
+        @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SQ_ID_ESTUDIANTE")
+        @SequenceGenerator(name = "SQ_ID_ESTUDIANTE",sequenceName="SQ_ID_ESTUDIANTE",allocationSize = 1)
         @Column(name = "id_estudiante")
         private Long studentId;
         @Column(name="nombre")

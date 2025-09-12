@@ -20,6 +20,8 @@ public class Enrollment {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SQ_ID_MATRICULA")
+    @SequenceGenerator(name = "SQ_ID_MATRICULA",sequenceName="SQ_ID_MATRICULA",allocationSize = 1)
     @Column(name = "id_matricula")
     private Long enrollmentId;
     @Column(name="semestre")

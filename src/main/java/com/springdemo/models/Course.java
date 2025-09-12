@@ -14,6 +14,8 @@ public class Course {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "SQ_ID_CURSO")
+    @SequenceGenerator(name = "SQ_ID_CURSO",sequenceName="SQ_ID_CURSO",allocationSize = 1)
     @Column(name = "id_curso")
     private Long courseId;
     @Column(name="creditos")
