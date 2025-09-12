@@ -3,9 +3,8 @@ package com.springdemo.controller;
 import com.springdemo.models.Student;
 import com.springdemo.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.repository.query.Param;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,7 +16,18 @@ public class StudentController {
     private StudentService studentService;
 
     @GetMapping("/find")
-    public List<Student> findAll(){
+    public List<Student> findAll() {
         return this.studentService.findAll();
     }
+
+    @GetMapping("/{id}")
+    public Student findAll(@PathVariable("id") Long studentId) {
+        return this.studentService.findById(studentId);
+    }
+
+    @PostMapping("/save")
+    public Student saveStudent(@RequestBody Student student){
+        return this.studentService.saveStudent(student);
+    }
+
 }
