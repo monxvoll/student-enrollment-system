@@ -27,6 +27,9 @@ public class Enrollment {
     @Column(name="semestre")
     private String semester;
 
+    public Enrollment(){
+
+    }
     public Enrollment(Student student, Course course, Long enrollmentId, String semester) {
         this.student = student;
         this.course = course;

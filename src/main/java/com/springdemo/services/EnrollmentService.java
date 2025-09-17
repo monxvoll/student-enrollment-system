@@ -31,7 +31,7 @@ public class EnrollmentService {
     }
 
     public Enrollment saveEnrollment(Enrollment enrollment){
-        Student student = this.studentRepository.findById(enrollment.getStudent().getIdStudent()).orElse(null);
+        Student student = this.studentRepository.findById(enrollment.getStudent().getStudentId()).orElse(null);
         enrollment.setStudent(student);
 
         Course course = this.courseRepository.findById(enrollment.getCourse().getCourseId()).orElse(null);

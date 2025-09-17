@@ -36,11 +36,11 @@ public class Student {
         this.email = email;
     }
 
-    public Long getIdStudent() {
+    public Long getStudentId() {
         return studentId;
     }
 
-    public void setIdStudent(Long idStudent) {
+    public void setStudentId(Long idStudent) {
         this.studentId = idStudent;
     }
 
