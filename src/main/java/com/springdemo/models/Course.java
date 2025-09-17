@@ -23,6 +23,9 @@ public class Course {
     @Column (name = "descripcion")
     private String description;
 
+    public Course(){
+
+    }
     public Course(Long courseId, int credits, String description) {
         this.courseId = courseId;
         this.credits = credits;

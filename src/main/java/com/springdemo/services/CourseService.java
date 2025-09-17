@@ -25,7 +25,7 @@ public class CourseService {
         return this.courseRepository.findById(id).orElseThrow();
     }
 
-    public Course saveStudent(Course course){
+    public Course saveCourse(Course course){
         return this.courseRepository.save(course);
     }
 }
