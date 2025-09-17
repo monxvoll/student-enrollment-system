@@ -3,9 +3,9 @@ package com.springdemo.services;
 import com.springdemo.models.Student;
 import com.springdemo.repositories.EnrollmentRepository;
 import com.springdemo.repositories.StudentRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -16,6 +16,8 @@ public class StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
+
+
 
     /**
      * Finds all students in the database.
@@ -42,5 +44,12 @@ public class StudentService {
      */
     public Student saveStudent(Student student){
         return this.studentRepository.save(student);
+    }
+
+    public Student updateStudent(Long studentId, Student student){
+        Student st = this.studentRepository.findById(studentId).orElse(null);
+        assert st != null;
+        BeanUtils.copyProperties(student,st,"id_estudiante");
+        return  this.studentRepository.save(st);
     }
 }

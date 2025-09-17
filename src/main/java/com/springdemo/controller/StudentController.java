@@ -1,5 +1,6 @@
 package com.springdemo.controller;
 
+import com.springdemo.models.Course;
 import com.springdemo.models.Student;
 import com.springdemo.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,11 @@ public class StudentController {
     @PostMapping("/save")
     public Student saveStudent(@RequestBody Student student){
         return this.studentService.saveStudent(student);
+    }
+
+    @PutMapping("/update/{id}")
+    public Student updateStudent(@PathVariable("Id") Long studentId, @RequestBody Student newStudent){
+        return this.updateStudent(studentId,newStudent);
     }
 
 }

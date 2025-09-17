@@ -24,7 +24,7 @@ public class EnrollmentController {
     public Enrollment findById(@PathVariable("id") Long enrollmentId) {
         return this.enrollmentService.findById(enrollmentId);
     }
-    
+
 
     @PostMapping("/save")
     public Enrollment saveEnrollment(@RequestBody Enrollment enrollment){
