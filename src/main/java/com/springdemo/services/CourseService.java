@@ -1,9 +1,11 @@
 package com.springdemo.services;
 
 import com.springdemo.models.Course;
+import com.springdemo.models.Enrollment;
 import com.springdemo.models.Student;
 import com.springdemo.repositories.CourseRepository;
 import com.springdemo.repositories.EnrollmentRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +28,10 @@ public class CourseService {
         return this.courseRepository.save(course);
     }
 
-
+    public Course updateCourse(Long courseId, Course newCourse){
+        Course crs = this.courseRepository.findById(courseId).orElse(null);
+        assert crs != null;
+        BeanUtils.copyProperties(newCourse,crs,"id_curso");
+        return  this.courseRepository.save(crs);
+    }
 }

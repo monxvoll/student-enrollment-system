@@ -30,7 +30,7 @@ public class CourseController {
     }
 
     @PutMapping("/update/{id}")
-    public Course updateCourse(@PathVariable("Id") Long courseId, @RequestBody Course newCourse){
-        return null;
+    public Course updateCourse(@PathVariable("id") Long courseId, @RequestBody Course newCourse){
+        return this.courseService.updateCourse(courseId,newCourse);
     }
 }

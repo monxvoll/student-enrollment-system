@@ -6,6 +6,7 @@ import com.springdemo.models.Student;
 import com.springdemo.repositories.CourseRepository;
 import com.springdemo.repositories.EnrollmentRepository;
 import com.springdemo.repositories.StudentRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +40,14 @@ public class EnrollmentService {
 
         return this.enrollmentRepository.save(enrollment);
     }
+
+    public Enrollment updateEnrollment(Long enrollmentId, Enrollment newEnrollment){
+        Enrollment enr = this.enrollmentRepository.findById(enrollmentId).orElse(null);
+        assert enr != null;
+        BeanUtils.copyProperties(newEnrollment,enr,"id_matricula");
+        return  this.enrollmentRepository.save(enr);
+    }
+
     public List<Enrollment> getEnrollmentByStudent(Long studentId){
         return this.enrollmentRepository.getEnrollmentByStudent(studentId);
     }
