@@ -39,5 +39,7 @@ public class EnrollmentService {
 
         return this.enrollmentRepository.save(enrollment);
     }
-
+    public List<Enrollment> getEnrollmentByStudent(Long studentId){
+        return this.enrollmentRepository.getEnrollmentByStudent(studentId);
+    }
 }

@@ -11,8 +11,6 @@ import java.util.List;
 
 @Service
 public class StudentService {
-    @Autowired
-    private EnrollmentRepository enrollmentRepository;
 
     @Autowired
     private StudentRepository studentRepository;

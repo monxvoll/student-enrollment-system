@@ -12,9 +12,6 @@ import java.util.List;
 @Service
 public class CourseService {
     @Autowired
-    private EnrollmentRepository enrollmentRepository;
-
-    @Autowired
     private CourseRepository courseRepository;
 
     public List<Course> findAll(){
@@ -28,4 +25,6 @@ public class CourseService {
     public Course saveCourse(Course course){
         return this.courseRepository.save(course);
     }
+
+
 }

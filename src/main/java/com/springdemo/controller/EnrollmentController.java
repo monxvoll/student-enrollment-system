@@ -1,7 +1,6 @@
 package com.springdemo.controller;
 
 import com.springdemo.models.Enrollment;
-import com.springdemo.models.Student;
 import com.springdemo.services.EnrollmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,4 +30,8 @@ public class EnrollmentController {
             return this.enrollmentService.saveEnrollment(enrollment);
     }
 
+    @GetMapping("/by-student/{id}")
+    public List<Enrollment> getEnrollmentByStudent(@PathVariable("id") Long studentId){
+        return this.enrollmentService.getEnrollmentByStudent(studentId);
+    }
 }
