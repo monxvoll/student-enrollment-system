@@ -1,7 +1,6 @@
 package com.springdemo.controller;
 
 import com.springdemo.models.Course;
-import com.springdemo.models.Student;
 import com.springdemo.services.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -32,5 +31,10 @@ public class CourseController {
     @PutMapping("/update/{id}")
     public Course updateCourse(@PathVariable("id") Long courseId, @RequestBody Course newCourse){
         return this.courseService.updateCourse(courseId,newCourse);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteCourse(@PathVariable("id") Long courseId) {
+        this.courseService.deleteCourse(courseId);
     }
 }

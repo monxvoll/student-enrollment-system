@@ -51,4 +51,8 @@ public class EnrollmentService {
     public List<Enrollment> getEnrollmentByStudent(Long studentId){
         return this.enrollmentRepository.getEnrollmentByStudent(studentId);
     }
+
+    public void deleteEnrollment(Long enrollmentId) {
+        this.enrollmentRepository.deleteById(enrollmentId);
+    }
 }

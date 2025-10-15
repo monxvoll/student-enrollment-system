@@ -1,7 +1,6 @@
 package com.springdemo.services;
 
 import com.springdemo.models.Student;
-import com.springdemo.repositories.EnrollmentRepository;
 import com.springdemo.repositories.StudentRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,5 +48,9 @@ public class StudentService {
         assert st != null;
         BeanUtils.copyProperties(student,st,"id_estudiante");
         return  this.studentRepository.save(st);
+    }
+
+    public void deleteStudent(Long studentId) {
+        this.studentRepository.deleteById(studentId);
     }
 }

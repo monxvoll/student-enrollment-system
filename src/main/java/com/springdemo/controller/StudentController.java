@@ -1,10 +1,9 @@
 package com.springdemo.controller;
 
-import com.springdemo.models.Course;
+
 import com.springdemo.models.Student;
 import com.springdemo.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,6 +33,11 @@ public class StudentController {
     @PutMapping("/update/{id}")
     public Student update(@PathVariable("id") Long studentId, @RequestBody Student newStudent){
         return this.studentService.updateStudent(studentId,newStudent);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteStudent(@PathVariable("id") Long studentId) {
+        this.studentService.deleteStudent(studentId);
     }
 
 }

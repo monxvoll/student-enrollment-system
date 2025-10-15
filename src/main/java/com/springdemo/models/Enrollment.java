@@ -2,7 +2,7 @@ package com.springdemo.models;
 
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.ManyToAny;
+
 
 @Entity
 @Table(name = "enrollment")
